@@ -26,6 +26,7 @@ return new class extends Migration
             $table->boolean('completely_signed')->default(false);
             $table->date('last_action_date')->nullable();
             $table->time('last_action_time')->nullable();
+            $table->decimal('amount', 10, 2);
             $table->timestamps();
         });
 

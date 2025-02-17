@@ -7,28 +7,28 @@
             <div class="mb-6">
                 <nav class="flex space-x-4 border-b border-gray-200">
                     <a href="{{ route('records.index') }}" 
-                        class="px-3 py-2 text-sm font-medium {{ request()->routeIs('records.index') ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500 hover:text-gray-700' }}">
+                        class="{{ request()->routeIs('records.index') ? 'px-3 py-2 text-sm font-medium text-blue-700 border-b-2 border-blue-500' : 'px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700' }}">
                         Documents
                     </a>
-                    <a href="{{ route('records.orders.index') }}" 
-                        class="px-3 py-2 text-sm font-medium {{ request()->routeIs('records.orders.*') ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500 hover:text-gray-700' }}">
+                    <a href="{{ route('orders.index') }}" 
+                        class="{{ request()->routeIs('orders.*') ? 'px-3 py-2 text-sm font-medium text-blue-700 border-b-2 border-blue-500' : 'px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700' }}">
                         Orders
                     </a>
-                    <a href="{{ route('records.vouchers.index') }}" 
-                        class="px-3 py-2 text-sm font-medium {{ request()->routeIs('records.vouchers.*') ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500 hover:text-gray-700' }}">
+                    <a href="{{ route('vouchers.index') }}" 
+                        class="{{ request()->routeIs('vouchers.*') ? 'px-3 py-2 text-sm font-medium text-blue-700 border-b-2 border-blue-500' : 'px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700' }}">
                         Vouchers
                     </a>
-                    <a href="{{ route('records.pr.index') }}" 
-                        class="px-3 py-2 text-sm font-medium {{ request()->routeIs('records.pr.*') ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500 hover:text-gray-700' }}">
-                        PR
+                    <a href="{{ route('purchase-requests.index') }}" 
+                        class="{{ request()->routeIs('purchase-requests.*') ? 'px-3 py-2 text-sm font-medium text-blue-700 border-b-2 border-blue-500' : 'px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700' }}">
+                        Purchase Requests
                     </a>
-                    <a href="{{ route('records.po.index') }}" 
-                        class="px-3 py-2 text-sm font-medium {{ request()->routeIs('records.po.*') ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500 hover:text-gray-700' }}">
-                        PO
+                    <a href="{{ route('purchase-orders.index') }}" 
+                        class="{{ request()->routeIs('purchase-orders.*') ? 'px-3 py-2 text-sm font-medium text-blue-700 border-b-2 border-blue-500' : 'px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700' }}">
+                        Purchase Orders
                     </a>
-                    <a href="{{ route('records.route-slips.index') }}" 
-                        class="px-3 py-2 text-sm font-medium {{ request()->routeIs('records.route-slips.*') ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500 hover:text-gray-700' }}">
-                        Route Slip
+                    <a href="{{ route('route-slips.index') }}" 
+                        class="{{ request()->routeIs('route-slips.*') ? 'px-3 py-2 text-sm font-medium text-blue-700 border-b-2 border-blue-500' : 'px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700' }}">
+                        Route Slips
                     </a>
                 </nav>
             </div>

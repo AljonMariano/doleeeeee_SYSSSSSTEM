@@ -8,59 +8,63 @@ use Carbon\Carbon;
 
 class DocumentSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
-        $sampleDocuments = [
+        $documents = [
             [
-                'origin' => 'DOLE Central Office',
-                'subject' => 'Annual Budget Planning Guidelines 2024',
-                'forward_to' => 'PLANNING',
-                'remarks' => 'For immediate review and implementation',
+                'doc_id' => '2024-TSSD-169',
+                'date_received' => '2025-01-02',
+                'time_received' => '10:50',
+                'origin' => 'TSSD',
+                'subject' => 'ADVOCACY MATERIALS FOR THE 2024 REGIONAL YEPA CUM CAPACITY DEVELOPMENT & AWARDS & RECOGNITION',
+                'forward_to' => 'SUPPLY',
+                'status' => 'pending',
+                'remarks' => null,
             ],
             [
-                'origin' => 'Regional Governor Office',
-                'subject' => 'COVID-19 Workplace Safety Protocols Update',
-                'forward_to' => 'HRMO',
-                'remarks' => 'Please disseminate to all departments',
-            ],
-            [
-                'origin' => 'DTI Regional Office',
-                'subject' => 'Joint Memorandum on SME Support Programs',
-                'forward_to' => 'TSSD',
-                'remarks' => 'For review and comments',
-            ],
-            [
-                'origin' => 'DOLE Secretary Office',
-                'subject' => 'Q2 Performance Metrics Requirements',
+                'doc_id' => '2024-TSSD-170',
+                'date_received' => '2025-01-02',
+                'time_received' => '13:00',
+                'origin' => 'MALSU',
+                'subject' => 'MEALS & ACCOMODATION FOR THE CONDUCT OF 2024 REGIONAL YEPA CUM CAPACITY DEVELOPMENT & AWARDS RECOGNITION',
                 'forward_to' => 'IMSD',
-                'remarks' => 'Please prepare necessary reports',
+                'status' => 'pending',
+                'remarks' => null,
             ],
             [
-                'origin' => 'Commission on Audit',
-                'subject' => 'Annual Audit Report FY 2023',
-                'forward_to' => 'ACCOUNTING',
-                'remarks' => 'For compliance and action',
+                'doc_id' => 'AB-24-11-86',
+                'date_received' => '2025-01-02',
+                'time_received' => '14:00',
+                'origin' => 'MALSU',
+                'subject' => 'INDIVIDUAL LIVELIHOOD PROJECT (REED CRAFT) OF 1 PCL',
+                'forward_to' => 'IMSD',
+                'status' => 'pending',
+                'remarks' => null,
+            ],
+            [
+                'doc_id' => '2024-KFO-141',
+                'date_received' => '2025-01-06',
+                'time_received' => '10:40',
+                'origin' => 'KFO',
+                'subject' => 'CATERING SERVICES ON THE CONDUCT OF TAV CUM ORIENTATION',
+                'forward_to' => 'SUPPLY',
+                'status' => 'pending',
+                'remarks' => null,
+            ],
+            [
+                'doc_id' => '2024-KFO-137',
+                'date_received' => '2025-01-06',
+                'time_received' => '14:50',
+                'origin' => 'KFO',
+                'subject' => 'VEHICLE MAINTENANCE',
+                'forward_to' => 'SUPPLY',
+                'status' => 'pending',
+                'remarks' => null,
             ],
         ];
 
-        foreach ($sampleDocuments as $doc) {
-            $now = Carbon::now();
-            
-            $document = Document::create([
-                'doc_id' => Document::generateDocId(),
-                'date_received' => $now->toDateString(),
-                'time_received' => $now->toTimeString(),
-                'origin' => $doc['origin'],
-                'subject' => $doc['subject'],
-                'forward_to' => $doc['forward_to'],
-                'remarks' => $doc['remarks'],
-                'status' => 'pending',
-                'last_action_date' => $now->toDateString(),
-                'last_action_time' => $now->toTimeString()
-            ]);
-
-            // Create initial route
-            $document->routeTo($doc['forward_to']);
+        foreach ($documents as $doc) {
+            Document::create($doc);
         }
     }
 } 

@@ -1,28 +1,32 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        // First create the admin user with a temporary email
+        DB::table('users')->insert([
+            'name' => 'Administrator',
+            'username' => 'admin',
+            'email' => 'admin@temp.com',
+            'password' => Hash::make('admin123'),
+            'role' => 'admin',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        // Then update to set email to NULL
+        DB::table('users')
+            ->where('username', 'admin')
+            ->update(['email' => null]);
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        DB::table('users')->where('username', 'admin')->delete();
     }
-};
+}; 

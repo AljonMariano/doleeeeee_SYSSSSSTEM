@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('current_location')->nullable();
             $table->string('status')->default('pending');
             $table->text('remarks')->nullable();
+            $table->decimal('amount', 10, 2);
             $table->boolean('completely_signed')->default(false);
             $table->date('last_action_date')->nullable();
             $table->time('last_action_time')->nullable();
